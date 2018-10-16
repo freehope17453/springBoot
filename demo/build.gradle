@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.5.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	//implementation('org.springframework.boot:spring-boot-starter-security')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	
+	/*redis “¿¿µ*/
+	implementation('org.springframework.boot:spring-boot-starter-data-redis')
+	implementation('redis.clients:jedis')
+	implementation('org.apache.commons:commons-pool2')
+	implementation('com.alibaba:fastjson:1.2.51')
+	
+	/* ˝æ›ø‚“¿¿µ*/
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	implementation('javax.xml.bind:jaxb-api')
+	runtimeOnly('mysql:mysql-connector-java')
+	
+	/*thymeleaf*/
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	//testImplementation('org.springframework.security:spring-security-test')
+}
